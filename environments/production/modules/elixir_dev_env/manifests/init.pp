@@ -26,4 +26,12 @@ class elixir_dev_env {
     ensure => present,
     require    => Exec['apt-get-update'],
   }
+
+  vcsrepo { '/home/vagrant/.emacs.d':
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/syl20bnr/spacemacs',
+    require => Package['git'],
+    owner => 'vagrant',
+  }
 }
