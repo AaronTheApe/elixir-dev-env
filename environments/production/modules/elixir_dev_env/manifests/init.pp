@@ -34,4 +34,11 @@ class elixir_dev_env {
     require => Package['git'],
     owner => 'vagrant',
   }
+
+  file { '/home/vagrant/.spacemacs':
+      owner => 'vagrant',
+      group => 'vagrant',
+      mode  => '0644',
+      source => 'puppet:///modules/elixir_dev_env/spacemacs',
+  }
 }
